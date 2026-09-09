@@ -1,16 +1,16 @@
 from fastapi import FastAPI
-from routes.tets import router as testRouter
-from routes.countryRouter import router as countryRouter
+from routes.cityRouter import router as countryRouter
 from routes.weatherRouter import router as weatherRouter
+from routes.favoritesRouter import router as favoritesRouter
 import requests
 
 
 
 app = FastAPI()
 
-app.include_router(testRouter)
 app.include_router(countryRouter)
 app.include_router(weatherRouter)
+app.include_router(favoritesRouter)
 
 
 @app.get('/health')
@@ -19,14 +19,6 @@ def checkHealth():
 
 
 
-
-# url = "https://geocoding-api.open-meteo.com/v1/search"
-# params={"name":" vfkjv vs "}
-
-# fetch = requests.get(url,params=params)
-
-# print(fetch.json())
-# print(fetch.status_code)
 
 if __name__== "__main__":
     print("run...")

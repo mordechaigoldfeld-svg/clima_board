@@ -1,13 +1,13 @@
 import requests
-from utils.country_validator import countryExists
 
 
 
 
 
-def getCountry(countryName):
+
+def getCities(cityName):
     url = "https://geocoding-api.open-meteo.com/v1/search"
-    params={"name":countryName}
+    params={"name":cityName}
     fetch = requests.get(url,params=params)
     return fetch.json()
     

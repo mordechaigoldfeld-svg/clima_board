@@ -1,6 +1,14 @@
 import requests
 # from utils.days_validator import days_validator
-from service.country import getCountry
+from service.citiesService import getCities
+from schema.comparationSchema import CityBody
+
+
+
+
+
+
+
 
 def get_Current_wheater(lat:float,long:float):
     url = "https://api.open-meteo.com/v1/forecast"
@@ -30,16 +38,16 @@ def get_prevision_wheater(lat:float,long:float,days:int):
 
 
 
-print(get_prevision_wheater(-23.5475,46.63611,2))
+# print(get_prevision_wheater(-23.5475,46.63611,2))
 
 
 
 
-# def get_prevision_by_name(counrtyName,days):
-#     country = get
-#     return
-
-
-
-# def get_current_by_name():
-#     return
+def compare_two_cities(city_a: CityBody, city_b: CityBody):
+    weather_a = get_Current_wheater(city_a.latitude, city_a.longitude)
+    weather_b =get_Current_wheater(city_b.latitude, city_b.longitude)
+    return {
+        "city_a": {"name": city_a.name, "weather": weather_a},
+        "city_b": {"name": city_b.name, "weather": weather_b}
+    }
+    
