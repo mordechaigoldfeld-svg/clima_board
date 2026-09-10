@@ -29,7 +29,9 @@ def insert(body:favoriteBody):
 @router.delete('/delete/{id}')
 def remove(id:str):
     removed = deleteFavorite(id)
-    if removed:
+    if removed == True:
         return {"success":"deleted"}
-    raise HTTPException(404,"not found")
+    else:
+        
+        raise HTTPException(404,"not found")
     

@@ -1,12 +1,12 @@
-from pydantic import BaseModel
+from pydantic import BaseModel,Field
 
 
 
 
 class CityBody(BaseModel):
-    name:str
-    latitude:float
-    longitude:float
+    name:str= Field(min_length=2, max_length=50)
+    latitude:float=Field(ge=-90.0, le=90.0)
+    longitude:float=Field(ge=-180.0, le=180.0)
 
 
 

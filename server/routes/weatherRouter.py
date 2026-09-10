@@ -1,8 +1,8 @@
-from fastapi import APIRouter,HTTPException
+from fastapi import APIRouter,HTTPException,Query
 from service.WheaterService import get_Current_wheater, get_prevision_wheater,compare_two_cities
 from utils.days_validator import isValidDays
 from schema.comparationSchema import ComparisionBody
-
+from schema.weatherSchema import weatherCurrentSchema,weatherPrevisionSchema
 
 
 
@@ -13,18 +13,17 @@ router = APIRouter(prefix='/weather',tags=['weather'])
 
 
 @router.get('/current')
-def getCurrent(lat:float,long:float):
-    temperature = get_Current_wheater(lat,long)
+def getCurrent(params:weatherCurrentSchema=Query()):
+    temperature = get_Current_wheater(params.lat,params.long)
     return  temperature
     
 
 
 @router.get('/prevision')
-def getPrevision(lat:float,long:float,days:int):
-    if isValidDays(days):
-        temperature = get_prevision_wheater(lat,long,days)
+def getPrevision(params:weatherPrevisionSchema=Query()):
+        temperature = get_prevision_wheater(params.lat,params.long,params.days)
         return temperature
-    raise HTTPException(422,"invalid days")
+    
 
 
 
