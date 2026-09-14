@@ -2,6 +2,20 @@ import { Link, useNavigate } from "react-router"
 import "./Dashboard.css"
 import { getCities, getCurrentWeather } from "../../api/api"
 import { useState, useEffect } from "react"
+import Spinner from "../../components/spinner/Spinner"
+import { getCityService, getWeatherForCityService } from "../../service/weatherService"
+import CityCard from "../../components/cityCard/CityCard"
+
+
+
+
+
+
+
+
+
+
+
 
 
 export default function Dashboard() {
@@ -12,6 +26,8 @@ export default function Dashboard() {
   const [weather, setWeather] = useState<any>(null)
   const [loading, setLoading] = useState<boolean>(true)
   const [error, setError] = useState<string | null>(null)
+  const [favoriteId, setFavoriteId] = useState<string | null>(null)
+
 
   useEffect(() => {
     async function loadDashboardData() {
@@ -19,24 +35,23 @@ export default function Dashboard() {
         setLoading(true)
         setError(null)
 
-        const citiesResponse = await getCities('jerusalem')
-        
-        if (!citiesResponse?.results || citiesResponse.results.length === 0) {
+        const citiesResponse = await getCityService('jerusalem')
+
+
+        if (citiesResponse.length === 0) {
           setError("City not found")
           return
         }
 
-        const defaultCity = citiesResponse.results[0]
+        const defaultCity = citiesResponse[0]
+
         setCity(defaultCity)
 
-        const weatherResponse = await getCurrentWeather(
-          defaultCity.latitude,
-          defaultCity.longitude
-        )
+        const weatherResponse = await getWeatherForCityService(defaultCity)
         setWeather(weatherResponse)
 
       } catch (err) {
-        setError("Failed to load weather data")
+        setError(`Failed to load weather data: ${err}`)
       } finally {
         setLoading(false)
       }
@@ -52,27 +67,18 @@ export default function Dashboard() {
       </div>
 
       <div className="weather-section">
-        {loading && <p>Loading weather for Jerusalem...</p>}
+        {loading && <span><Spinner /> Loading weather for Jerusalem...</span>}
         {error && <p style={{ color: "red" }}>{error}</p>}
 
         {!loading && city && weather && (
-          <div className="weather-card">
-            <h2>{city.name}, {city.country}</h2>
-            <p><strong>Temperature:</strong> {weather.current.temperature_2m}°C</p>
-            
-              <p><strong>Wind Speed:</strong> {weather.current.wind_speed_10m} km/h</p>
-            
-              <p><strong>Weather Code:</strong> {weather.current.weather_code}</p>
-              <p><strong>apparent temperature:</strong> {weather.current.apparent_temperature}</p>
-            
-          </div>
+          <CityCard city={city} current={weather.current} />
         )}
       </div>
 
       <div className="navigation-actions">
-        <button onClick={() => navigate('/search')}>to search</button>
-        <button onClick={() => navigate('/compare')}>to compare</button>
-        <button onClick={() => navigate('/favorites')}>to favorites</button>
+        <button className="click" onClick={() => navigate('/search')}>to search</button>
+        <button className="click" onClick={() => navigate('/compare')}>to compare</button>
+        <button className="click" onClick={() => navigate('/favorites')}>to favorites</button>
       </div>
     </div>
   )

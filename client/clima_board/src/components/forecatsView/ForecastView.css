@@ -1,0 +1,97 @@
+.forecast-wrapper {
+  margin-top: 28px;
+  width: 100%;
+  text-align: center;
+}
+
+.forecast-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.forecast-select {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgb(156, 156, 206);
+  background-color: white;
+  color:rgb(12, 12, 81);
+  font-size: 0.95rem;
+  outline: none;
+  cursor: pointer;
+}
+
+.forecast-select:focus {
+  border-color: #3b82f6;
+}
+
+.forecast-btn {
+  padding: 8px 18px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2159d0;
+  color:white;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.forecast-btn:hover {
+  background-color: #1d4ed8;
+}
+
+.forecast-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.forecast-status {
+  margin-top: 14px;
+  color: #475569;
+}
+
+.forecast-error {
+  color: #dc2626;
+  margin-top: 12px;
+}
+
+.forecast-cards-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 14px;
+  margin-top: 16px;
+}
+
+.forecast-day-card {
+  background-color: #ffffff;
+  border: 1px solid #e2e8f0;
+  border-radius: 12px;
+  padding: 14px 16px;
+  min-width: 120px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.forecast-date {
+  font-weight: 700;
+  color: #0f172a;
+  border-bottom: 1px solid #f1f5f9;
+  padding-bottom: 6px;
+  margin-bottom: 4px;
+}
+
+.forecast-day-card p {
+  margin: 0;
+  font-size: 0.85rem;
+  color: #475569;
+}
+
+.forecast-temp {
+  color: #2563eb ;
+}

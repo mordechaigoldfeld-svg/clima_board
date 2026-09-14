@@ -1,0 +1,36 @@
+.dashboard-container {
+
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    align-items: center;
+    
+}
+
+.navigation-actions{
+
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+
+.click {
+
+    border-radius: 6px;
+    border: none;
+    box-shadow: 10px 10px 20px rgb(179, 150, 150);
+    color: white;
+    background-color: rgb(36, 108, 132);
+    transition: transform 0.20s ease;
+    cursor: pointer;
+    padding: 5px;
+
+}
+
+
+.click:hover {
+
+    transform: scale(1.1);
+    color: aqua;
+}

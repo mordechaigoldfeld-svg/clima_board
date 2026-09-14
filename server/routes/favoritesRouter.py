@@ -9,9 +9,9 @@ router =APIRouter(prefix='/favorites',tags=['favorites'])
 @router.get('/get')
 def getFavorites(explorer_name:str):
     favorites = getbyExplorerName(explorer_name)
-    if len(favorites)==0:
-        raise HTTPException(404,f'user: {explorer_name} not found')
-    return favorites
+    # if len(favorites)==0:
+    #     raise HTTPException(404,f'user: {explorer_name} not found')
+    return favorites if favorites else[]
 
 
 

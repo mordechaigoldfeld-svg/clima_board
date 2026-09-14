@@ -7,6 +7,8 @@ export async function getCities(name:string) {
     const cities = await instance.get('cities',{
         params:{name}
     })
+    console.log(cities);
+    
     return cities.data
 }
 

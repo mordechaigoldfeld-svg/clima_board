@@ -1,7 +1,13 @@
-import React from 'react'
+import FavoritesList from "../../components/favoritesList/FavoritesList"
+
+
+
 
 export default function Favorites() {
+ 
   return (
-    <div>Favorites</div>
+    <div>Favorites
+      <FavoritesList/>
+    </div>
   )
 }

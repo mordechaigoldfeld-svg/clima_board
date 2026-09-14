@@ -10,6 +10,7 @@ import Protected from './pages/protected/Protected';
 import Search from './pages/search/Search';
 import Layout from './components/layout/Layout';
 import Welcome from './pages/welcome/Welcome';
+import CityDetails from './pages/cityDetails/CityDetails';
 
 
 
@@ -26,8 +27,9 @@ function App() {
 
             <Route path='/dashboard' element={<Dashboard />} />
             <Route path='/search' element={<Search />} />
+            <Route path='/cityDetails/:name/:latitude/:longitude/:country' element={<CityDetails />} />
             <Route path='/compare' element={<Compare />} />
-            <Route path='/favorites' element={<Favorites />} />
+            <Route path='/favorites/' element={<Favorites />} />
             
           </Route>
 
