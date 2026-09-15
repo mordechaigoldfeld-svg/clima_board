@@ -1,18 +1,18 @@
 [
   {
-    "explorer_name": "moty",
-    "city_name": "S\u00e3o Paulo",
-    "country": "Brazil",
-    "lat": -23.5475,
-    "long": -46.63611,
-    "id": "ea8a6f765a5b411da6c6d340ff80af71"
+    "explorer_name": "momo",
+    "city_name": "London",
+    "country": "United Kingdom",
+    "lat": 51.50853,
+    "long": -0.12574,
+    "id": "027f966fa67e4fb28c95ac768b9556d5"
   },
   {
     "explorer_name": "moty",
-    "city_name": "Bnei Brak",
-    "country": "Israel",
-    "lat": 32.08074,
-    "long": 34.8338,
-    "id": "7104a693536646fc880ec303cfb9f6e9"
+    "city_name": "S\u00e3o Paulo",
+    "country": "S\u00e3o Tom\u00e9 and Pr\u00edncipe",
+    "lat": 0.20613,
+    "long": 6.64377,
+    "id": "0c5c468f6f064453941c87c980e2b6ee"
   }
 ]

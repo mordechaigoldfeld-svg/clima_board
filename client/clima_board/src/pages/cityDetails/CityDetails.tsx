@@ -92,7 +92,7 @@ export default function CityDetails() {
                     country: city.country,
                     lat: city.latitude,
                     long: city.longitude,
-                } as any)
+                })
                 console.log("Server response on insert:", newFav)
 
                 const updatedList = await getByName(explorer_name)
